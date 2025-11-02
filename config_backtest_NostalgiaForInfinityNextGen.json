@@ -1,0 +1,162 @@
+{
+    "strategy": "NostalgiaForInfinityNextGen",
+    "strategy_path": "strategies/NostalgiaForInfinityNextGen",
+    
+    "max_open_trades": 6,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "USD",
+    "dry_run": true,
+    
+    "timeframe": "15m",
+    
+    "unfilledtimeout": {
+        "buy": 10,
+        "sell": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+
+    "order_types": {
+        "buy": "limit",
+        "sell": "limit",
+        "trailing_stop_loss": "limit",
+        "stoploss": "limit",
+        "stoploss_on_exchange": false,
+        "stoploss_on_exchange_interval": 60,
+        "stoploss_on_exchange_limit_ratio": 0.99
+    },
+
+    "order_time_in_force": {
+        "buy": "gtc",
+        "sell": "gtc"
+    },
+
+    "pairlist": {
+        "method": "VolumePairList",
+        "number_assets": 80,
+        "sort_key": "quoteVolume",
+        "min_value": 0,
+        "refresh_period": 1800,
+        "filters": [
+            {
+                "method": "RangeStabilityFilter",
+                "lookback_days": 10,
+                "min_rate_of_change": 0.02,
+                "max_rate_of_change": 0.97,
+                "refresh_period": 1440
+            },
+            {
+                "method": "VolatilityFilter",
+                "lookback_days": 3,
+                "min_volatility": 0.02,
+                "max_volatility": 0.75,
+                "refresh_period": 86400
+            },
+            {"method": "ShuffleFilter", "seed": 42}
+        ]
+    },
+
+    "blacklist": [
+        "BNB/USDT",
+        ".*BULL/.*",
+        ".*BEAR/.*",
+        ".*UP/.*",
+        ".*DOWN/.*",
+        ".*(3|5|10|20)(L|S)/.*",
+        ".*LEVERAGED/.*",
+        ".*LEV/.*",
+        "AUD/.*",
+        "BRZ/.*",
+        "EUR/.*",
+        "GBP/.*",
+        "HKD/.*",
+        "IDRT/.*",
+        "JPY/.*",
+        "NGN/.*",
+        "RUB/.*",
+        "SGD/.*",
+        "TRY/.*",
+        "UAH/.*",
+        "USD/.*",
+        "ZAR/.*"
+    ],
+
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {
+            "enableRateLimit": true,
+            "rateLimit": 50
+        },
+        "ccxt_async_config": {
+            "enableRateLimit": true,
+            "rateLimit": 50
+        },
+        "pair_whitelist": [
+            "1INCH/USDT", "AAVE/USDT", "ADA/USDT", "ALGO/USDT", "ALICE/USDT", "ALPHA/USDT",
+            "ANKR/USDT", "ANT/USDT", "APE/USDT", "API3/USDT", "ARDR/USDT", "ARK/USDT",
+            "ARPA/USDT", "ATOM/USDT", "AUDIO/USDT", "AVAX/USDT", "AXS/USDT", "BAKE/USDT",
+            "BAL/USDT", "BAND/USDT", "BAT/USDT", "BCH/USDT", "BICO/USDT", "BNT/USDT",
+            "BTC/USDT", "CAKE/USDT", "CELO/USDT", "CHR/USDT", "CHZ/USDT", "CKB/USDT",
+            "COMP/USDT", "COTI/USDT", "CRV/USDT", "CTK/USDT", "CTSI/USDT", "CVC/USDT",
+            "DASH/USDT", "DATA/USDT", "DENT/USDT", "DGB/USDT", "DOGE/USDT", "DOT/USDT",
+            "DUSK/USDT", "DYDX/USDT", "ENJ/USDT", "ENS/USDT", "EOS/USDT", "ETC/USDT",
+            "ETH/USDT", "FIL/USDT", "FTM/USDT", "FTT/USDT", "GALA/USDT", "GRT/USDT",
+            "HBAR/USDT", "HNT/USDT", "HOT/USDT", "ICP/USDT", "ICX/USDT", "IMX/USDT",
+            "INJ/USDT", "IOST/USDT", "IOTA/USDT", "IOTX/USDT", "JASMY/USDT", "KDA/USDT",
+            "KLAY/USDT", "KNC/USDT", "KSM/USDT", "LDO/USDT", "LINK/USDT", "LPT/USDT",
+            "LRC/USDT", "LTC/USDT", "LUNA/USDT", "MANA/USDT", "MASK/USDT", "MATIC/USDT",
+            "MKR/USDT", "NEAR/USDT", "NEO/USDT", "NKN/USDT", "OMG/USDT", "ONE/USDT",
+            "ONT/USDT", "OP/USDT", "PEOPLE/USDT", "QTUM/USDT", "RAY/USDT", "REEF/USDT",
+            "REN/USDT", "REQ/USDT", "RLC/USDT", "ROSE/USDT", "RSR/USDT", "SAND/USDT",
+            "SC/USDT", "SKL/USDT", "SNX/USDT", "SOL/USDT", "SRM/USDT", "STORJ/USDT",
+            "SUSHI/USDT", "SXP/USDT", "THETA/USDT", "TLM/USDT", "TOMO/USDT", "TRB/USDT",
+            "TRX/USDT", "UNI/USDT", "VET/USDT", "WAVES/USDT", "WOO/USDT", "XLM/USDT",
+            "XRP/USDT", "XTZ/USDT", "YFI/USDT", "YFII/USDT", "ZEC/USDT", "ZEN/USDT",
+            "ZIL/USDT", "ZRX/USDT"
+        ]
+    },
+
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+
+    "backtest": {
+        "timeframe": "15m",
+        "timerange": "20230801-20240801",
+        "max_open_trades": 6,
+        "stake_amount": "unlimited",
+        "fee": 0.001,
+        "trades_per_day": 4,
+        "backtest_cache": "day",
+        "enable_protections": false
+    },
+
+    "bot_name": "NFI_Backtest",
+    "initial_state": "running",
+    "force_entry_enable": false,
+    
+    "internals": {
+        "process_throttle_secs": 5
+    },
+
+    "dataformat_ohlcv": "hdf5",
+    "dataformat_trades": "hdf5"
+}

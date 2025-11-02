@@ -1,0 +1,112 @@
+{
+    "strategy": "NostalgiaForInfinityNextGen",
+    "strategy_path": "user_data/strategies",
+    
+    "max_open_trades": 6,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "USD",
+    "dry_run": true,
+    
+    "timeframe": "15m",
+    
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+
+    "order_types": {
+        "entry": "limit",
+        "exit": "limit",
+        "trailing_stop_loss": "limit",
+        "stoploss": "limit",
+        "stoploss_on_exchange": false,
+        "stoploss_on_exchange_interval": 60,
+        "stoploss_on_exchange_limit_ratio": 0.99
+    },
+
+    "order_time_in_force": {
+        "entry": "gtc",
+        "exit": "gtc"
+    },
+
+    "pairlists": [
+        {
+            "method": "StaticPairList"
+        }
+    ],
+
+    "blacklist": [
+        "BNB/USDT",
+        ".*BULL/.*",
+        ".*BEAR/.*",
+        ".*UP/.*",
+        ".*DOWN/.*",
+        ".*(3|5|10|20)(L|S)/.*",
+        ".*LEVERAGED/.*",
+        ".*LEV/.*"
+    ],
+
+    "exchange": {
+        "name": "bybit",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {
+            "enableRateLimit": true,
+            "rateLimit": 50
+        },
+        "ccxt_async_config": {
+            "enableRateLimit": true,
+            "rateLimit": 50
+        },
+        "pair_whitelist": [
+            "BTC/USDT", "ETH/USDT", "ADA/USDT", "DOT/USDT", "LINK/USDT",
+            "MATIC/USDT", "SOL/USDT", "AVAX/USDT", "ATOM/USDT", "NEAR/USDT",
+            "ALGO/USDT", "XRP/USDT", "LTC/USDT", "UNI/USDT", "AAVE/USDT",
+            "COMP/USDT", "MKR/USDT", "SNX/USDT", "CRV/USDT", "SUSHI/USDT"
+        ]
+    },
+
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+
+    "backtest": {
+        "timeframe": "15m",
+        "timerange": "20250101-20250827",
+        "max_open_trades": 6,
+        "stake_amount": "unlimited",
+        "fee": 0.001,
+        "trades_per_day": 4,
+        "backtest_cache": "day",
+        "enable_protections": false
+    },
+
+    "bot_name": "NFI_Backtest",
+    "initial_state": "running",
+    "force_entry_enable": false,
+    
+    "internals": {
+        "process_throttle_secs": 5
+    },
+
+    "dataformat_ohlcv": "feather",
+    "dataformat_trades": "feather"
+}
